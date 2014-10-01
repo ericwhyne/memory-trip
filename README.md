@@ -6,7 +6,7 @@ Experiments in munging and reading the memory of running linux processes.
 
 Demonstration 1:
 
-This will demonstrate a way to tripwire a binary and monitor it's memory for signs of tampering. This first method involves inserting benign variables near the declarations of program variables and ensuring their state remains unchanged during execution of the program.
+This will demonstrate a way to tripwire a binary and monitor it's memory for signs of tampering. This first method involves inserting benign variables near the declarations of program variables (which subsequently end up in the program's stack) and ensuring their state remains unchanged during execution of the program. This is commonly known as a stack canary; it will die first if anything bad happens, so we watch it.
 
 To run this demo, first compile the tripwired binary. This binary contains an exploitable buffer overflow but also contains tripwires as described above. 
 
